@@ -1,0 +1,9 @@
+{
+  "log": {"loglevel": "warning"},
+  "inbounds": [{
+    "listen": "127.0.0.1", "port": 19876, "protocol": "vmess",
+    "settings": {"clients": [{"id": "REPLACE_WITH_UUID", "alterId": 0}]},
+    "streamSettings": {"network": "tcp"}
+  }],
+  "outbounds": [{"protocol": "freedom", "settings": {}}]
+}

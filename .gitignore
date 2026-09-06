@@ -1,0 +1,9 @@
+server.json
+test-client.json
+profile.txt
+*.key
+*.pem
+id_*
+.env
+__pycache__/
+*.log

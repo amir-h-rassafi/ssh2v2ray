@@ -1,0 +1,12 @@
+[Unit]
+Description=ssh2v2ray remote proxy
+
+[Service]
+ExecStart=/usr/bin/xray run -config %h/.local/share/ssh2v2ray/server.json
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+UMask=0077
+
+[Install]
+WantedBy=default.target

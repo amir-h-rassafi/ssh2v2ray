@@ -1,0 +1,8 @@
+{
+  "log": {"loglevel": "warning"},
+  "inbounds": [{"listen": "127.0.0.1", "port": 10809, "protocol": "socks", "settings": {"udp": true}}],
+  "outbounds": [{"protocol": "vmess", "settings": {"vnext": [{
+    "address": "LOCAL_LAN_IP", "port": 10808,
+    "users": [{"id": "REPLACE_WITH_UUID", "alterId": 0, "security": "auto"}]
+  }]}, "streamSettings": {"network": "tcp"}}]
+}
