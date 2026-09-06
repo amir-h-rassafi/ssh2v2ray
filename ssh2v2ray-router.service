@@ -1,0 +1,15 @@
+[Unit]
+Description=Local Xray router for Iran split routing
+Wants=ssh2v2ray-tunnel.service
+After=ssh2v2ray-tunnel.service
+
+[Service]
+Environment=XRAY_LOCATION_ASSET=%h/.local/share/ssh2v2ray
+ExecStart=/usr/bin/xray run -config %h/.local/share/ssh2v2ray/router.json
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+UMask=0077
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,25 @@
+{
+  "log": {"loglevel": "warning"},
+  "dns": {"servers": ["1.1.1.1", "8.8.8.8"]},
+  "inbounds": [{
+    "tag": "phone", "listen": "LOCAL_LAN_IP", "port": 10808,
+    "protocol": "vmess",
+    "settings": {"clients": [{"id": "REPLACE_WITH_UUID", "alterId": 0}]},
+    "streamSettings": {"network": "tcp"},
+    "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"], "routeOnly": true}
+  }],
+  "outbounds": [
+    {"tag": "direct", "protocol": "freedom", "settings": {}},
+    {"tag": "iran", "protocol": "vmess", "settings": {"vnext": [{
+      "address": "127.0.0.1", "port": 10818,
+      "users": [{"id": "REPLACE_WITH_UUID", "alterId": 0, "security": "auto"}]
+    }]}, "streamSettings": {"network": "tcp"}}
+  ],
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      {"type": "field", "domain": ["geosite:category-ir"], "outboundTag": "iran"},
+      {"type": "field", "ip": ["geoip:ir"], "outboundTag": "iran"}
+    ]
+  }
+}

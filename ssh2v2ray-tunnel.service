@@ -3,7 +3,7 @@ Description=ssh2v2ray local SSH tunnel
 After=network-online.target
 
 [Service]
-ExecStart=/usr/bin/ssh -N -T -p SSH_PORT -i %h/.ssh/id_ed25519 -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -o ConnectTimeout=15 -L LOCAL_LAN_IP:10808:127.0.0.1:19876 USER@HOST
+ExecStart=/usr/bin/ssh -N -T -p SSH_PORT -i %h/.ssh/id_ed25519 -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -o ConnectTimeout=15 -L 127.0.0.1:10818:127.0.0.1:19876 USER@HOST
 Restart=always
 RestartSec=5
 UMask=0077

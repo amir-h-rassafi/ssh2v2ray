@@ -22,4 +22,4 @@ with socket.create_connection(("127.0.0.1", 10809), timeout=15) as control:
     assert reply[:4] == b"\x00\x00\x00\x01", reply
     ident, flags, _, answers, _, _ = struct.unpack("!6H", reply[10:22])
     assert ident == 0x7619 and flags & 0x8000 and flags & 15 == 0 and answers > 0
-    print(f"UDP DNS passed: {answers} answers through Wi-Fi endpoint and SSH")
+    print(f"UDP DNS passed: {answers} answers through the configured endpoint")

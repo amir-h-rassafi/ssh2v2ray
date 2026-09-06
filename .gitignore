@@ -1,4 +1,6 @@
 server.json
+router.json
+*.dat
 test-client.json
 profile.txt
 *.key
